@@ -1,0 +1,112 @@
+/* Arrière-plan */
+.login-bg {
+  background:  no-repeat center center / cover;
+  height: 100vh;
+  width: 100%;
+  position: relative;
+}
+
+/* Overlay avec effet sombre + flou */
+.login-overlay {
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Carte de login avec effet transparent */
+.login-card {
+  background: rgba(255, 255, 255, 0.15); /* transparence */
+  backdrop-filter: blur(12px); /* effet flou */
+  -webkit-backdrop-filter: blur(12px);
+  padding: 40px;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  animation: fadeIn 0.7s ease-out;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+}
+
+/* Animation d'apparition */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.logo-top {
+  width: 60px;
+  margin-bottom: 20px;
+  border-radius: 50%;
+}
+
+/* Titre */
+.login-card h2 {
+  font-size: 24px;
+  color: #ffffff;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  color: #dddddd;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+/* Formulaire */
+.login-form input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+.login-form input::placeholder {
+  color: #e0e0e0;
+}
+
+.login-form input:focus {
+  border-color: #ffffff;
+  outline: none;
+}
+
+.forgot-password {
+  display: block;
+  margin-bottom: 15px;
+  color: #aad4ff;
+  text-decoration: none;
+  font-size: 14px;
+}
+.forgot-password:hover {
+  text-decoration: underline;
+}
+
+.login-button {
+  width: 100%;
+  padding: 12px;
+  background-color: rgba(0, 51, 102, 0.8);
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  transition: background-color 0.3s;
+}
+.login-button:hover {
+  background-color: rgba(0, 31, 77, 0.9);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .login-card {
+    padding: 20px;
+    margin: 10px;
+  }
+}
