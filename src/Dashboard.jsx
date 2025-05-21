@@ -32,7 +32,7 @@ function SidebarItem({ icon: Icon, label, onClick, as: Component = 'div', to }) 
   );
 }
 
-function Dashboard({ user = { name: 'Jannah Hanae' }, onLogout }) {
+function Dashboard({ user = { name: 'Jannah Sanae' }, onLogout }) {
   const [search, setSearch] = useState('');
   const [darkMode, setDarkMode] = useState(false);
 
