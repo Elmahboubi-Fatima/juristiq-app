@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './Dashboard.css';
 import DashboardContent from './DashboardContent';
+import { Link } from 'react-router-dom';
 import {
   FaFolderOpen,
   FaUsers,
@@ -14,14 +15,20 @@ import {
   FaSun,
   FaBell,
   FaUserCircle,
+  FaBullhorn,
 } from 'react-icons/fa';
 
-function SidebarItem({ icon: Icon, label, onClick }) {
+function SidebarItem({ icon: Icon, label, onClick, as: Component = 'div', to }) {
   return (
-    <div className="sidebar-item" onClick={onClick}>
+    <Component 
+      to={to} 
+      className="sidebar-item" 
+      onClick={onClick}
+      style={{ textDecoration: 'none', color: 'inherit' }}
+    >
       <Icon className="icon" />
       <span>{label}</span>
-    </div>
+    </Component>
   );
 }
 
@@ -43,8 +50,9 @@ function Dashboard({ user = { name: 'Jannah Hanae' }, onLogout }) {
         <nav>
           <SidebarItem icon={FaFolderOpen} label="Dashboard" />
           <SidebarItem icon={FaUsers} label="Votre compte" />
-          <SidebarItem icon={FaCalendarAlt} label="Dossiers" />
-          <SidebarItem icon={FaFileAlt} label="Rendez-vous" />
+   <SidebarItem as={Link} to="/dossiers" icon={FaCalendarAlt} label="Dossiers" />
+  <SidebarItem as={Link} to="/audiences" icon={FaBullhorn} label="Audience" />
+  <SidebarItem as={Link} to="/rendezvous" icon={FaFileAlt} label="Rendez-vous" />
           <SidebarItem icon={FaEnvelope} label="Messages" />
           <SidebarItem icon={FaCog} label="Paramètres" />
           <SidebarItem icon={FaSignOutAlt} label="Déconnexion" onClick={onLogout} />

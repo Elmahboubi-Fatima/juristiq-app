@@ -15,7 +15,7 @@ function Login({ onLogin }) {
       <div className="login-overlay">
         <div className="login-card centered">
           <img src="../images/logo.jpg" alt="Logo JuristiQ" className="logo-top" />
-          <h2>Bienvenue sur JuristiQ</h2>
+         
           <p className="subtitle">Votre partenaire juridique fiable</p>
           <form onSubmit={handleSubmit} className="login-form">
             <input

@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Login from './Login';
 import Dashboard from './Dashboard';
+import Dossiers from './Dossiers';
+import Audiences from './Audience';
+import RendezVous from './RendezVous';
 import './App.css';
 
 function App() {
@@ -15,9 +19,34 @@ function App() {
   };
 
   return (
-    <div className="App">
-      {isAuthenticated ? <Dashboard /> : <Login onLogin={handleLogin} />}
-    </div>
+    <Router>
+      <div className="App">
+        <Routes>
+          <Route
+            path="/"
+            element={
+              isAuthenticated ? <Navigate to="/dashboard" /> : <Login onLogin={handleLogin} />
+            }
+          />
+          <Route
+            path="/dashboard"
+            element={isAuthenticated ? <Dashboard /> : <Navigate to="/" />}
+          />
+          <Route
+            path="/dossiers"
+            element={isAuthenticated ? <Dossiers /> : <Navigate to="/" />}
+          />
+          <Route
+            path="/audiences"
+            element={isAuthenticated ? <Audiences /> : <Navigate to="/" />}
+          />
+          <Route
+            path="/rendezvous"
+            element={isAuthenticated ? <RendezVous /> : <Navigate to="/" />}
+          />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
